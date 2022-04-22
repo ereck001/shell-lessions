@@ -5,5 +5,6 @@ read res
 
 if [ $res == 's'  ];
 then echo 'reiniciando...'
+#reboot
 
 fi
