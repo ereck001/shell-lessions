@@ -68,45 +68,47 @@ UnblockUser(){
 	usermod -L $userToUnblock
 }
 #menu
-while [ $res -ne '10' ] do
-	echo 'Selecione a opção desejada:'
-	echo '[1]-Adicionar usuário'
-	echo '[2]-Adicionar grupo'
-	echo '[3]-Adicionar usuário a grupo'
-	echo '[4]- Remover usuário do grupo'
-	echo '[5]- Remover grupo'
-	echo '[6]- Remover usuário do sistema'
-	echo '[7]- Alterar senha de usuário'
-	echo '[8]- Bloquear usuário'
-	echo '[9]- Desbloquear usuário'
-	echo '[10]- Sair'
+
+res=0
+while [ $res -ne 10 ]; do
+	echo 'Selecione a opção desejada:';
+	echo '[1]-Adicionar usuário';
+	echo '[2]-Adicionar grupo';
+	echo '[3]-Adicionar usuário a grupo';
+	echo '[4]- Remover usuário do grupo';
+	echo '[5]- Remover grupo';
+	echo '[6]- Remover usuário do sistema';
+	echo '[7]- Alterar senha de usuário';
+	echo '[8]- Bloquear usuário';
+	echo '[9]- Desbloquear usuário';
+	echo '[10]- Sair';
 
 
 	read res
 
+
+
+	if [ $res = '1' ];then
+		AdUsuario
+	elif [ $res = '2' ];then
+		AdGrupo
+	elif [ $res = '3' ];then
+		UserToGroup
+	elif [ $res = '4' ];then
+		RemoveOffGroup
+	elif [ $res = '5' ];then
+		DeleteGroup
+	elif [ $res = '6' ];then
+		DeleteUser
+	elif [ $res = '7' ];then
+		ChangePw
+	elif [ $res = '8' ];then
+		BlockUsr
+	elif [ $res = '9' ];then
+		UnblockUser
+	else
+		echo 'Opção inválida'
+		echo 'Programa finalizado'
+	fi
+
 done
-
-if [ $res = '1' ];then
-	AdUsuario
-elif [ $res = '2' ];then
-	AdGrupo
-elif [ $res = '3' ];then
-	UserToGroup
-elif [ $res = '4' ];then
-	RemoveOffGroup
-elif [ $res = '5' ];then
-	DeleteGroup
-elif [ $res = '6' ];then
-	DeleteUser
-elif [ $res = '7' ];then
-	ChangePw
-elif [ $res = '8' ];then
-	BlockUsr
-elif [ $res = '9' ];then
-	UnblockUser
-else
-	echo 'Opção inválida'
-	echo 'Programa finalizado'
-fi
-
-
